@@ -1,0 +1,18 @@
+{
+  "name": "typing-services-netlify",
+  "version": "1.0.0",
+  "description": "Typing services website with Netlify functions",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'No build step required for static site'"
+  },
+  "dependencies": {
+    "razorpay": "^2.9.2",
+    "dotenv": "^16.3.1",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^2.4.0",
+    "netlify-cli": "^17.0.0"
+  }
+}

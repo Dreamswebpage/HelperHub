@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed - Typing Services</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="failed-container">
+        <div class="failed-card">
+            <div class="failed-icon">
+                <i class="fas fa-times-circle"></i>
+            </div>
+            
+            <h1>Payment Failed</h1>
+            <p class="failed-message">We couldn't process your payment. Please try again.</p>
+            
+            <div class="error-details">
+                <p id="errorMessage">Transaction was declined by your bank. Please check your payment details and try again.</p>
+                
+                <div class="common-issues">
+                    <h3>Common issues:</h3>
+                    <ul>
+                        <li><i class="fas fa-credit-card"></i> Insufficient funds in your account</li>
+                        <li><i class="fas fa-shield-alt"></i> Bank security restrictions</li>
+                        <li><i class="fas fa-wifi"></i> Network connectivity issues</li>
+                        <li><i class="fas fa-clock"></i> Transaction timeout</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="btn btn-primary" id="retryPayment">
+                    <i class="fas fa-redo"></i> Try Payment Again
+                </button>
+                <a href="/order.html" class="btn btn-secondary">
+                    <i class="fas fa-edit"></i> Edit Order Details
+                </a>
+                <a href="/" class="btn btn-outline">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+            </div>
+            
+            <div class="support-info">
+                <p>If the problem persists, please contact your bank or try a different payment method.</p>
+                <div class="contact-options">
+                    <p><i class="fas fa-headset"></i> <strong>Customer Support:</strong> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> support@typingservices.com</p>
+                </div>
+            </div>
+            
+            <div class="payment-methods-info">
+                <h3>Alternative Payment Methods:</h3>
+                <div class="alt-payment-methods">
+                    <div class="alt-method">
+                        <i class="fas fa-university"></i>
+                        <span>Net Banking</span>
+                    </div>
+                    <div class="alt-method">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>UPI</span>
+                    </div>
+                    <div class="alt-method">
+                        <i class="fas fa-wallet"></i>
+                        <span>Wallet</span>
+                    </div>
+                    <div class="alt-method">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Cash on Delivery</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Get error details from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const error = urlParams.get('error') || 'Transaction was declined by your bank. Please check your payment details and try again.';
+        
+        // Update error message
+        document.getElementById('errorMessage').textContent = decodeURIComponent(error);
+        
+        // Retry payment button
+        document.getElementById('retryPayment').addEventListener('click', function() {
+            const orderId = urlParams.get('order_id');
+            if (orderId) {
+                window.location.href = `/checkout.html?order_id=${orderId}`;
+            } else {
+                window.location.href = '/order.html';
+            }
+        });
+        
+        // Store order details for retry
+        if (urlParams.get('order_id')) {
+            sessionStorage.setItem('lastOrderId', urlParams.get('order_id'));
+        }
+    </script>
+</body>
+</html>

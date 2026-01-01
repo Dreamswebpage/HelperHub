@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Typing Services</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Typing<span>Services</span></a>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <a href="/services.html"><i class="fas fa-tasks"></i> Services</a>
+                <a href="/order.html"><i class="fas fa-file-alt"></i> Order</a>
+                <a href="/contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/admin/login.html" class="admin-btn"><i class="fas fa-user-shield"></i> Admin</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>Get in touch with our team for any queries or support</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Our Location</h3>
+                        <p>123 Typing Street<br>Mumbai, Maharashtra 400001<br>India</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Phone Numbers</h3>
+                        <p><strong>Customer Support:</strong> +91 98765 43210</p>
+                        <p><strong>Sales & Orders:</strong> +91 98765 43211</p>
+                        <p><strong>WhatsApp:</strong> +91 98765 43212</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Addresses</h3>
+                        <p><strong>Support:</strong> support@typingservices.com</p>
+                        <p><strong>Orders:</strong> orders@typingservices.com</p>
+                        <p><strong>Business:</strong> business@typingservices.com</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Working Hours</h3>
+                        <p><strong>Monday - Friday:</strong> 9:00 AM - 8:00 PM</p>
+                        <p><strong>Saturday:</strong> 10:00 AM - 6:00 PM</p>
+                        <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container">
+                    <div class="contact-form-card">
+                        <h2>Send us a Message</h2>
+                        <p>Fill out the form below and we'll get back to you within 24 hours</p>
+                        
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="contactName">Full Name *</label>
+                                    <input type="text" id="contactName" name="name" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="contactEmail">Email Address *</label>
+                                    <input type="email" id="contactEmail" name="email" class="form-control" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactPhone">Phone Number</label>
+                                <input type="tel" id="contactPhone" name="phone" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactSubject">Subject *</label>
+                                <select id="contactSubject" name="subject" class="form-control" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="order">Order Inquiry</option>
+                                    <option value="service">Service Information</option>
+                                    <option value="payment">Payment Issue</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="feedback">Feedback & Suggestions</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="contactMessage">Message *</label>
+                                <textarea id="contactMessage" name="message" rows="5" class="form-control" required placeholder="Please describe your inquiry in detail..."></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="contactNewsletter" name="newsletter">
+                                    <label for="contactNewsletter">Subscribe to our newsletter for updates</label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                            
+                            <div id="contactResponse" class="form-response"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        How long does it take to complete an order?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Standard delivery is 24-48 hours. Express service (12-24 hours) and Urgent service (6-12 hours) are available at additional charges.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What file formats do you accept?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept PDF, JPG, PNG for source files and deliver in Word (.docx), PDF, Google Docs, or plain text formats.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is my document confidential?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, all documents are treated with strict confidentiality. We sign NDAs upon request and have secure data handling procedures.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I request revisions?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we offer 2 free revisions for every order. Additional revisions are available at nominal charges.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What payment methods do you accept?
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We accept all major credit/debit cards, UPI, net banking, and popular wallets through our secure payment gateway.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Typing Services</h3>
+                    <p>Professional typing solutions since 2024</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="/">Home</a>
+                    <a href="/services.html">Services</a>
+                    <a href="/order.html">Order</a>
+                    <a href="/contact.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> info@typingservices.com</p>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mumbai, India</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Typing Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const responseDiv = document.getElementById('contactResponse');
+            
+            // Show loading state
+            responseDiv.innerHTML = '<div class="alert alert-info"><i class="fas fa-spinner fa-spin"></i> Sending your message...</div>';
+            
+            // Simulate API call
+            setTimeout(() => {
+                responseDiv.innerHTML = '<div class="alert alert-success"><i class="fas fa-check-circle"></i> Thank you! Your message has been sent. We\'ll get back to you within 24 hours.</div>';
+                form.reset();
+                
+                // Clear success message after 5 seconds
+                setTimeout(() => {
+                    responseDiv.innerHTML = '';
+                }, 5000);
+            }, 1500);
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                // Close other open FAQs
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+                        item.querySelector('.faq-question i').classList.remove('fa-chevron-up');
+                        item.querySelector('.faq-question i').classList.add('fa-chevron-down');
+                    }
+                });
+                
+                // Toggle current FAQ
+                faqItem.classList.toggle('active');
+                
+                if (faqItem.classList.contains('active')) {
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    icon.classList.remove('fa-chevron-down');
+                    icon.classList.add('fa-chevron-up');
+                } else {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('fa-chevron-up');
+                    icon.classList.add('fa-chevron-down');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

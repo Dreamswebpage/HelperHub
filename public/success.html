@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful - Typing Services</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="success-container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            
+            <h1>Payment Successful!</h1>
+            <p class="success-message">Thank you for your order. Your payment has been processed successfully.</p>
+            
+            <div class="order-details">
+                <div class="detail-item">
+                    <span class="detail-label">Order ID:</span>
+                    <span class="detail-value" id="successOrderId">TS-2024-001</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Transaction ID:</span>
+                    <span class="detail-value" id="successTransactionId">txn_123456789</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Amount Paid:</span>
+                    <span class="detail-value" id="successAmount">₹2.36</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Payment Date:</span>
+                    <span class="detail-value" id="successDate">01 Jan 2024, 10:30 AM</span>
+                </div>
+            </div>
+            
+            <div class="next-steps">
+                <h3>What happens next?</h3>
+                <ul>
+                    <li><i class="fas fa-envelope"></i> You will receive a confirmation email shortly</li>
+                    <li><i class="fas fa-clock"></i> Our team will start working on your order immediately</li>
+                    <li><i class="fas fa-file-alt"></i> You can track your order status in your dashboard</li>
+                </ul>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <a href="/order.html" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i> Place Another Order
+                </a>
+                <button class="btn btn-outline" id="printReceipt">
+                    <i class="fas fa-print"></i> Print Receipt
+                </button>
+            </div>
+            
+            <div class="support-info">
+                <p><strong>Need help?</strong> Contact our support team:</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210 | <i class="fas fa-envelope"></i> support@typingservices.com</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Get parameters from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Update order details from URL parameters
+        const orderId = urlParams.get('order_id') || 'TS-' + Date.now().toString().slice(-8);
+        const transactionId = urlParams.get('transaction_id') || 'txn_' + Date.now();
+        const amount = urlParams.get('amount') || '₹2.36';
+        
+        document.getElementById('successOrderId').textContent = orderId;
+        document.getElementById('successTransactionId').textContent = transactionId;
+        document.getElementById('successAmount').textContent = amount;
+        
+        // Set current date
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        document.getElementById('successDate').textContent = now.toLocaleDateString('en-IN', options);
+        
+        // Print receipt function
+        document.getElementById('printReceipt').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+</html>

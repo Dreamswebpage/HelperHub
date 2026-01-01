@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Checkout - Typing Services</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <div class="checkout-header">
+            <a href="/" class="logo">Typing<span>Services</span></a>
+        </div>
+
+        <div class="checkout-content">
+            <div class="checkout-card">
+                <div class="checkout-status">
+                    <div class="status-step active">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Order Details</span>
+                    </div>
+                    <div class="status-line"></div>
+                    <div class="status-step active">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Payment</span>
+                    </div>
+                    <div class="status-line"></div>
+                    <div class="status-step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Confirmation</span>
+                    </div>
+                </div>
+
+                <div class="checkout-body">
+                    <div class="payment-info">
+                        <h2><i class="fas fa-lock"></i> Secure Payment</h2>
+                        <p class="payment-subtitle">Complete your order with a secure payment</p>
+
+                        <div class="order-summary">
+                            <h3>Order Summary</h3>
+                            <div class="summary-details">
+                                <div class="detail-item">
+                                    <span>Order ID:</span>
+                                    <span id="orderId">TS-2024-001</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span>Service:</span>
+                                    <span id="serviceType">Document Typing</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span>Amount:</span>
+                                    <span class="amount" id="paymentAmount">₹2.36</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-options">
+                            <h3>Choose Payment Method</h3>
+                            <div class="payment-methods">
+                                <div class="payment-method active" data-method="razorpay">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit/Debit Card</span>
+                                </div>
+                                <div class="payment-method" data-method="upi">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <span>UPI</span>
+                                </div>
+                                <div class="payment-method" data-method="netbanking">
+                                    <i class="fas fa-university"></i>
+                                    <span>Net Banking</span>
+                                </div>
+                                <div class="payment-method" data-method="wallet">
+                                    <i class="fas fa-wallet"></i>
+                                    <span>Wallets</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="payment-form" id="razorpayForm">
+                            <div class="form-group">
+                                <label>Card Number</label>
+                                <div class="card-input">
+                                    <input type="text" placeholder="1234 5678 9012 3456" maxlength="19">
+                                    <i class="fas fa-credit-card"></i>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Expiry Date</label>
+                                    <input type="text" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label>CVV</label>
+                                    <div class="cvv-input">
+                                        <input type="password" placeholder="123" maxlength="3">
+                                        <i class="fas fa-question-circle" title="3-digit code on back of card"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Name on Card</label>
+                                <input type="text" placeholder="John Doe">
+                            </div>
+                        </div>
+
+                        <div class="upi-form" id="upiForm" style="display: none;">
+                            <div class="form-group">
+                                <label>UPI ID</label>
+                                <input type="text" placeholder="username@upi">
+                            </div>
+                            <p class="upi-note">You will be redirected to your UPI app to complete the payment</p>
+                        </div>
+
+                        <div class="payment-disclaimer">
+                            <p><i class="fas fa-shield-alt"></i> Your payment is secure and encrypted</p>
+                            <p><i class="fas fa-lock"></i> We do not store your card details</p>
+                        </div>
+
+                        <div class="payment-actions">
+                            <button class="btn btn-secondary" id="cancelPayment">
+                                <i class="fas fa-times"></i> Cancel
+                            </button>
+                            <button class="btn btn-success" id="proceedPayment">
+                                <i class="fas fa-lock"></i> Pay ₹<span id="payAmount">2.36</span>
+                            </button>
+                        </div>
+
+                        <div class="secured-by">
+                            <p>Secured by</p>
+                            <div class="security-badges">
+                                <img src="https://razorpay.com/assets/razorpay-logo.svg" alt="Razorpay" height="30">
+                                <img src="https://razorpay.com/assets/pci-dss.svg" alt="PCI DSS" height="30">
+                                <img src="https://razorpay.com/assets/trust-seal.svg" alt="Trust Seal" height="30">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="checkout-sidebar">
+                        <div class="support-box">
+                            <h3><i class="fas fa-headset"></i> Need Help?</h3>
+                            <p>Contact our support team for assistance</p>
+                            <div class="contact-info">
+                                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                                <p><i class="fas fa-envelope"></i> support@typingservices.com</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-box">
+                            <h3>Payment FAQ</h3>
+                            <div class="faq-item">
+                                <h4>Is it safe to pay online?</h4>
+                                <p>Yes, all payments are processed through Razorpay, a PCI DSS compliant payment gateway.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>What payment methods are accepted?</h4>
+                                <p>Credit/Debit cards, UPI, Net Banking, and popular wallets.</p>
+                            </div>
+                            <div class="faq-item">
+                                <h4>When will I get my order?</h4>
+                                <p>Delivery time depends on the urgency level selected. Standard delivery is 24-48 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="checkout-footer">
+            <p>&copy; 2024 Typing Services. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Refund Policy</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <h3>Processing Payment</h3>
+            <p>Please do not refresh or close this window</p>
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="payment-modal" id="paymentModal" style="display: none;">
+        <div class="payment-modal-content">
+            <div class="payment-modal-header">
+                <h3>Complete Payment</h3>
+            </div>
+            <div class="payment-modal-body">
+                <p>You will be redirected to Razorpay's secure payment page to complete your transaction.</p>
+                <div class="payment-modal-actions">
+                    <button class="btn btn-secondary" id="modalCancel">Cancel</button>
+                    <button class="btn btn-primary" id="modalConfirm">Continue to Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>

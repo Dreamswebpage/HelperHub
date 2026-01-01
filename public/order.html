@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order - Typing Services</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">Typing<span>Services</span></a>
+            <div class="nav-links">
+                <a href="/"><i class="fas fa-home"></i> Home</a>
+                <a href="/services.html"><i class="fas fa-tasks"></i> Services</a>
+                <a href="/order.html" class="active"><i class="fas fa-file-alt"></i> Order</a>
+                <a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                <a href="/admin/login.html" class="admin-btn"><i class="fas fa-user-shield"></i> Admin</a>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Place Your Order</h1>
+            <p>Fill in the details below to get started</p>
+        </div>
+    </section>
+
+    <section class="order-form-section">
+        <div class="container">
+            <form id="orderForm" class="order-form">
+                <!-- Step 1: Service Selection -->
+                <div class="form-step active" id="step1">
+                    <h2 class="step-title">Step 1: Select Service</h2>
+                    
+                    <div class="service-options">
+                        <div class="service-option">
+                            <input type="radio" id="service-document" name="service" value="document" checked>
+                            <label for="service-document">
+                                <span class="service-name">Document Typing</span>
+                                <span class="service-price">₹2/page</span>
+                                <span class="service-desc">Convert handwritten/PDF to digital</span>
+                            </label>
+                        </div>
+                        
+                        <div class="service-option">
+                            <input type="radio" id="service-data" name="service" value="data-entry">
+                            <label for="service-data">
+                                <span class="service-name">Data Entry</span>
+                                <span class="service-price">₹150/hour</span>
+                                <span class="service-desc">Accurate data entry services</span>
+                            </label>
+                        </div>
+                        
+                        <div class="service-option">
+                            <input type="radio" id="service-thesis" name="service" value="thesis">
+                            <label for="service-thesis">
+                                <span class="service-name">Thesis Typing</span>
+                                <span class="service-price">₹5/page</span>
+                                <span class="service-desc">Academic papers & theses</span>
+                            </label>
+                        </div>
+                        
+                        <div class="service-option">
+                            <input type="radio" id="service-business" name="service" value="business">
+                            <label for="service-business">
+                                <span class="service-name">Business Documents</span>
+                                <span class="service-price">₹3/page</span>
+                                <span class="service-desc">Reports, proposals, letters</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="urgency">Urgency Level</label>
+                        <select id="urgency" name="urgency" class="form-control">
+                            <option value="standard">Standard (24-48 hours)</option>
+                            <option value="express">Express (12-24 hours) +25%</option>
+                            <option value="urgent">Urgent (6-12 hours) +50%</option>
+                        </select>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-primary next-step" data-next="step2">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Order Details -->
+                <div class="form-step" id="step2">
+                    <h2 class="step-title">Step 2: Order Details</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="pages">Number of Pages</label>
+                            <input type="number" id="pages" name="pages" min="1" value="1" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="deadline">Deadline</label>
+                            <input type="text" id="deadline" name="deadline" class="form-control datepicker" placeholder="Select date">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fileType">Output Format</label>
+                        <select id="fileType" name="fileType" class="form-control">
+                            <option value="docx">Microsoft Word (.docx)</option>
+                            <option value="pdf">PDF Document</option>
+                            <option value="google-docs">Google Docs</option>
+                            <option value="txt">Plain Text (.txt)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="instructions">Special Instructions</label>
+                        <textarea id="instructions" name="instructions" rows="4" class="form-control" placeholder="Any specific formatting requirements or instructions..."></textarea>
+                    </div>
+                    
+                    <div class="form-group file-upload">
+                        <label for="documentFile">Upload Document (Optional)</label>
+                        <div class="upload-area" id="uploadArea">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload or drag and drop</p>
+                            <p class="upload-hint">Max file size: 10MB. Supported: PDF, JPG, PNG</p>
+                            <input type="file" id="documentFile" name="documentFile" accept=".pdf,.jpg,.jpeg,.png" hidden>
+                        </div>
+                        <div id="filePreview" class="file-preview"></div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-secondary prev-step" data-prev="step1">Back</button>
+                        <button type="button" class="btn btn-primary next-step" data-next="step3">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Contact Details -->
+                <div class="form-step" id="step3">
+                    <h2 class="step-title">Step 3: Contact Information</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="college">College/Company (Optional)</label>
+                            <input type="text" id="college" name="college" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Address (Optional)</label>
+                        <textarea id="address" name="address" rows="3" class="form-control"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Subscribe to our newsletter for updates</label>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-secondary prev-step" data-prev="step2">Back</button>
+                        <button type="button" class="btn btn-primary" id="calculatePrice">Calculate Price</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review & Payment -->
+                <div class="form-step" id="step4">
+                    <h2 class="step-title">Step 4: Review & Payment</h2>
+                    
+                    <div class="order-summary">
+                        <div class="summary-header">
+                            <h3>Order Summary</h3>
+                        </div>
+                        
+                        <div class="summary-content">
+                            <div class="summary-item">
+                                <span>Service:</span>
+                                <span id="summary-service">Document Typing</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Pages:</span>
+                                <span id="summary-pages">1</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Urgency:</span>
+                                <span id="summary-urgency">Standard</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Deadline:</span>
+                                <span id="summary-deadline">-</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Format:</span>
+                                <span id="summary-format">Word Document</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-item total">
+                                <span>Total Amount:</span>
+                                <span id="summary-total">₹2.00</span>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-summary">
+                            <h4>Contact Information</h4>
+                            <p id="summary-name">-</p>
+                            <p id="summary-email">-</p>
+                            <p id="summary-phone">-</p>
+                        </div>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3>Select Payment Method</h3>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <input type="radio" id="pay-online" name="payment" value="online" checked>
+                                <label for="pay-online">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Pay Online (Razorpay)</span>
+                                </label>
+                            </div>
+                            <div class="payment-option">
+                                <input type="radio" id="pay-later" name="payment" value="later">
+                                <label for="pay-later">
+                                    <i class="fas fa-clock"></i>
+                                    <span>Pay After Delivery</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="terms-agreement">
+                            <div class="checkbox">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">
+                                    I agree to the <a href="#" target="_blank">Terms of Service</a> and understand that this order is subject to our quality standards.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step-actions">
+                        <button type="button" class="btn btn-secondary prev-step" data-prev="step3">Back</button>
+                        <button type="submit" class="btn btn-success" id="submitOrder">
+                            <i class="fas fa-lock"></i> Place Order & Pay
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Loading State -->
+                <div class="form-loading" id="formLoading" style="display: none;">
+                    <div class="loading-spinner"></div>
+                    <p>Processing your order...</p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Price Calculation Modal -->
+    <div class="modal" id="priceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Price Calculation</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="price-breakdown">
+                    <div class="price-item">
+                        <span>Base Price (1 page × ₹2):</span>
+                        <span>₹2.00</span>
+                    </div>
+                    <div class="price-item">
+                        <span>Urgency Charge:</span>
+                        <span>₹0.00</span>
+                    </div>
+                    <div class="price-item">
+                        <span>GST (18%):</span>
+                        <span>₹0.36</span>
+                    </div>
+                    <div class="price-divider"></div>
+                    <div class="price-item total">
+                        <span>Total Amount:</span>
+                        <span>₹2.36</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-secondary" id="modalBack">Back</button>
+                    <button class="btn btn-primary" id="modalProceed">Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Need Help?</h3>
+                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                    <p><i class="fas fa-envelope"></i> support@typingservices.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Typing Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/order.js"></script>
+</body>
+</html>
