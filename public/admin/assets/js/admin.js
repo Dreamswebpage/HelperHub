@@ -505,25 +505,3 @@ function showConfirm(message, callback) {
     });
 
 }
-
-const SERVICE_API = "https://script.google.com/macros/s/AKfycbwn2ZtrKxx8ek3CFQhpfZhiduS3VEVK1GIlDBsxBWVMJI4u-pfJRmgC3hlG5jQIjGpx/exec";
-
-const addServiceForm = document.getElementById("addServiceForm");
-
-if (addServiceForm) {
-  addServiceForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const title = document.getElementById("serviceTitle").value;
-    const description = document.getElementById("serviceDescription").value;
-    const price = document.getElementById("servicePrice").value;
-
-    await fetch(SERVICE_API, {
-      method: "POST",
-      body: JSON.stringify({ title, description, price })
-    });
-
-    showNotification("Service added successfully", "success");
-    addServiceForm.reset();
-  });
-}
