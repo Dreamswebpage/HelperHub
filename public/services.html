@@ -8,209 +8,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <a href="/" class="logo">Typing<span>Services</span></a>
-            <div class="nav-links">
-                <a href="/"><i class="fas fa-home"></i> Home</a>
-                <a href="/services.html" class="active"><i class="fas fa-tasks"></i> Services</a>
-                <a href="/order.html"><i class="fas fa-file-alt"></i> Order</a>
-                <a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a>
-                <a href="/admin/login.html" class="admin-btn"><i class="fas fa-user-shield"></i> Admin</a>
+
+<nav class="navbar">
+    <div class="container">
+        <a href="/" class="logo">Typing<span>Services</span></a>
+        <div class="nav-links">
+            <a href="/"><i class="fas fa-home"></i> Home</a>
+            <a href="/services.html" class="active"><i class="fas fa-tasks"></i> Services</a>
+            <a href="/order.html"><i class="fas fa-file-alt"></i> Order</a>
+            <a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="/admin/login.html" class="admin-btn"><i class="fas fa-user-shield"></i> Admin</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Our Services</h1>
+        <p>Choose from our wide range of professional typing services</p>
+    </div>
+</section>
+
+<!-- 🔥 ONLY THIS PART IS CHANGED -->
+<section class="services-list">
+    <div class="container">
+        <div class="services-container" id="servicesContainer">
+            <!-- services will load from admin -->
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Upload your documents and get a free quote within 1 hour</p>
+        <a href="/order.html" class="btn btn-primary btn-large">Place Your Order</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Typing Services</h3>
+                <p>Professional typing solutions</p>
             </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-    </nav>
-
-    <section class="page-header">
-        <div class="container">
-            <h1>Our Services</h1>
-            <p>Choose from our wide range of professional typing services</p>
-        </div>
-    </section>
-
-    <section class="services-list">
-        <div class="container">
-            <div class="services-container">
-                <!-- Service 1 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="service-details">
-                        <h3>Document Typing</h3>
-                        <p class="service-description">Convert handwritten documents, PDFs, or images into editable digital formats with perfect formatting.</p>
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span class="price-label">Standard (24-48 hours)</span>
-                                <span class="price-amount">₹2/page</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Express (12-24 hours)</span>
-                                <span class="price-amount">₹3/page</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Urgent (6-12 hours)</span>
-                                <span class="price-amount">₹4/page</span>
-                            </div>
-                        </div>
-                        <a href="/order.html?service=document" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-keyboard"></i>
-                    </div>
-                    <div class="service-details">
-                        <h3>Data Entry</h3>
-                        <p class="service-description">Accurate data entry from various sources including forms, surveys, and business documents.</p>
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span class="price-label">Basic (per hour)</span>
-                                <span class="price-amount">₹150/hour</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Bulk (1000+ entries)</span>
-                                <span class="price-amount">₹0.50/entry</span>
-                            </div>
-                        </div>
-                        <a href="/order.html?service=data-entry" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <div class="service-details">
-                        <h3>Thesis Typing</h3>
-                        <p class="service-description">Professional typing of academic theses, dissertations, and research papers with proper formatting.</p>
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span class="price-label">Standard</span>
-                                <span class="price-amount">₹5/page</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">With Formatting</span>
-                                <span class="price-amount">₹8/page</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Complex (equations/tables)</span>
-                                <span class="price-amount">₹12/page</span>
-                            </div>
-                        </div>
-                        <a href="/order.html?service=thesis" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="service-details">
-                        <h3>Business Documents</h3>
-                        <p class="service-description">Reports, proposals, letters, and other business documents with professional formatting.</p>
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span class="price-label">Standard Documents</span>
-                                <span class="price-amount">₹3/page</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Complex Formatting</span>
-                                <span class="price-amount">₹6/page</span>
-                            </div>
-                        </div>
-                        <a href="/order.html?service=business" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="service-details">
-                        <h3>Book Typing</h3>
-                        <p class="service-description">Complete book typing and formatting services for authors and publishers.</p>
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span class="price-label">Manuscript Typing</span>
-                                <span class="price-amount">₹10,000/book</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Formatting Only</span>
-                                <span class="price-amount">₹3,000/book</span>
-                            </div>
-                        </div>
-                        <a href="/order.html?service=book" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="service-item">
-                    <div class="service-icon">
-                        <i class="fas fa-language"></i>
-                    </div>
-                    <div class="service-details">
-                        <h3>Multilingual Typing</h3>
-                        <p class="service-description">Typing services in multiple languages including Hindi, Marathi, Gujarati, and more.</p>
-                        <div class="service-pricing">
-                            <div class="price-item">
-                                <span class="price-label">Regional Languages</span>
-                                <span class="price-amount">₹4/page</span>
-                            </div>
-                            <div class="price-item">
-                                <span class="price-label">Foreign Languages</span>
-                                <span class="price-amount">₹6/page</span>
-                            </div>
-                        </div>
-                        <a href="/order.html?service=multilingual" class="btn btn-primary">Order Now</a>
-                    </div>
-                </div>
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="/services.html">Document Typing</a>
+                <a href="/services.html">Data Entry</a>
+                <a href="/services.html">Thesis Typing</a>
+                <a href="/services.html">Business Documents</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p><i class="fas fa-envelope"></i> info@typingservices.com</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
             </div>
         </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Upload your documents and get a free quote within 1 hour</p>
-            <a href="/order.html" class="btn btn-primary btn-large">Place Your Order</a>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Typing Services. All rights reserved.</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Typing Services</h3>
-                    <p>Professional typing solutions</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <a href="/services.html">Document Typing</a>
-                    <a href="/services.html">Data Entry</a>
-                    <a href="/services.html">Thesis Typing</a>
-                    <a href="/services.html">Business Documents</a>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-envelope"></i> info@typingservices.com</p>
-                    <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Typing Services. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
